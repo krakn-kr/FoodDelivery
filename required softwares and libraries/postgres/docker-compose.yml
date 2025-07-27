@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: food_delivery_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: user_service
+      POSTGRES_USER: ashok
+      POSTGRES_PASSWORD: ashok123
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data  # Bind mount
+    ports:
+      - "5432:5432"
