@@ -16,5 +16,8 @@ public interface UserService {
 
     public String login(LoginRequest request);
 
+    public UserResponse getUserData(Long id);
+
     public UserResponse mapToUserResponse(User user);
+
 }

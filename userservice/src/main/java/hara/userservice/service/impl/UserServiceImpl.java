@@ -45,6 +45,12 @@ public class UserServiceImpl implements UserService {
         return jwtService.generateToken(user);
     }
 
+    @Override
+    public UserResponse getUserData(Long id) {
+        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("user id not found for user id:" + id));
+        return mapToUserResponse(user);
+    }
+
     public UserResponse mapToUserResponse(User user) {
         return new UserResponse(
                 user.getId(),
